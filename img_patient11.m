@@ -4,7 +4,7 @@ clc
 
 % IMG View
 
-filenameimg = ['04/pre/sweep_4c/2d/4c.2dus.00410sm.img'];
+filenameimg = ['11/pre/sweep_11c/2d/11c.2dus.00400sm.img'];
 imginfo = analyze75info(filenameimg);
 img = analyze75read(imginfo);
 
@@ -12,7 +12,7 @@ im = abs(hilbert(img));
 bm_img = log(max(im,0.11));
 flip = flipdim(bm_img ,2); 
 
-rotated = imrotate(flip,150);
+rotated = imrotate(flip,180);
 % subplot(121)
 imagesc(rotated)
 colormap(gray)
