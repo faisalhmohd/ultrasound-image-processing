@@ -28,8 +28,23 @@ surf(abs(cropped_bm_im))
 colormap(two, summer)
 
 % Extracting row for Nakagami dist. analysis
-extractrow = double((croppedimg(35,:))+0.1)
-figure(2)
-h = histfit(extractrow,10,'nakagami')
+extractrow = double((croppedimg(35,:))+0.1);
+% figure(2)
+% h = histfit(extractrow,1,'nakagami')
+nakagami = fitdist(extractrow','Nakagami');
+gamma = fitdist(extractrow','Gamma');
+rayleigh = fitdist(extractrow','Rayleigh');
+x = 0:0.005:1;
+nakagamiy = pdf(nakagami,x);
+gammay = pdf(gamma,x);
+rayleighy = pdf(rayleigh,x);
+
+figure(3)
+plot(x,nakagamiy,'y')
+hold on
+plot(x,gammay,'m')
+hold on
+plot(x,rayleighy,'r')
+
 
 
