@@ -27,9 +27,9 @@ surf(abs(cropped_bm_im))
 % bar3(abs(cropped_bm_im))
 colormap(two, summer)
 
-%Extracting row for Nakagami dist. analysis
-extractrow = 250*(croppedimg(35,:))+20
+% Extracting row for Nakagami dist. analysis
+extractrow = double((croppedimg(35,:))+0.1)
 figure(2)
-h = histfit(extractrow,[], 'nakagami');
+h = histfit(extractrow,10,'nakagami')
 
 
